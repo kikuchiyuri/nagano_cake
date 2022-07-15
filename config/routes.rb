@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
+  root to: 'public/homes#top'
+  get '/about' => 'publichomes#about'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
