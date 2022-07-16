@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
+
   #顧客用
   #URL /customers/sign_in...
   devise_for :customers, controllers: {
