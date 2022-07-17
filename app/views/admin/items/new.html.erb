@@ -2,6 +2,7 @@
 
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 
+
 　<label>商品画像</label>
 　<%= f.file_field :image, accept: "image/*" %>
 
@@ -17,6 +18,7 @@
 　<label>税抜価格</label>
 　<span><%= f.text_field :price %>円</span>
 
+  <%= foem_with
 　<label>販売ステータス</label>
 　<span>販売中</span>
 　<span>販売停止中</span>

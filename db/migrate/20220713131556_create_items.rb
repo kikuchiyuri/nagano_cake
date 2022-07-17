@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
     create_table :items do |t|
 
       t.timestamps
-      
+
       #ジャンルIDを保存するカラム（外務キー）
       t.integer :genne_id
       #商品名
@@ -13,7 +13,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       #税抜き価格
       t.integer :price
       #販売ステータス
-      t.boolean :is_active
+      t.boolean :is_active, default: true
     end
   end
 end
