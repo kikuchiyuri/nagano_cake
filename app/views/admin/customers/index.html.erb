@@ -10,11 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= @customers.id %></td>
-      <td><%= @customers.name %></td>
-      <td><%= @customers.email %></td>
-      <td></td>
-    </tr>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.last_name %><%= customer.first_name %></td>
+        <td><%= customer.email %></td>
+        <td></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
