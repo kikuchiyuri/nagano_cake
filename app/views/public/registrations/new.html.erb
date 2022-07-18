@@ -1,25 +1,58 @@
-<h2>Sign up</h2>
+<h2>新規会員登録</h2>
 
 <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-
-
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <label>名前</label><br />
+    <span>
+      (姓) <%= f.text_field :last_name, autofocus: true, placeholder: "令和" %>
+    </span>
+    <span>
+      (名) <%= f.text_field :first_name, placeholder: "道子" %>
+    </span>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <label>フリガナ</label><br />
+    <span>
+      (セイ) <%= f.text_field :last_name_kana, placeholder: "レイワ" %>
+    </span>
+    <span>
+      (名) <%= f.text_field :first_name_kana, placeholder: "ミチコ" %>
+    </span>
+  </div>
+
+  <div class="field">
+    <label>メールアドレス</label><br />
+    <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %>
+  </div>
+
+  <div class="field">
+    <label>郵便番号(ハイフンなし)</label><br />
+    <%= f.text_field :postal_code, placeholder: "000000" %>
+  </div>
+
+  <div class="field">
+    <label>住所</label><br />
+     <%= f.text_area :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
+  </div>
+
+  <div class="field">
+    <label>電話番号(ハイフンなし)</label><br />
+    <%= f.text_field :phone_number, placeholder: "00000000000" %>
+  </div>
+
+  <div class="field">
+    <label>パスワード</label>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label>パスワード(確認用)</label><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -28,4 +61,12 @@
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+
+<h2>既にお登録ずみの方</h2>
+<p>
+  <%= link_to "こちら", new_customer_session_path %>
+  からログインしてください。
+</p>
+<%#= render "public/shared/links" %>
+
+
