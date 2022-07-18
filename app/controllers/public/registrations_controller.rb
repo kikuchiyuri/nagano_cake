@@ -4,6 +4,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  ## sign_upの時にメールとPW以外のカラムも保存できるようにする。
+  before_action :configure_psermitted_parameters
+
+
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -59,4 +64,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
+  protected
+
+  def configure_psermitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number])
+  end
+
 end
