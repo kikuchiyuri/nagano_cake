@@ -8,5 +8,5 @@
 
 Admin.create!(
   email: 'aaa@com',
-  encrypted_password: 'admin1234'
+  password: 'admin1234'
 )
