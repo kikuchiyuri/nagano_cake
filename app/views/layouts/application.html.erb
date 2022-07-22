@@ -21,6 +21,8 @@
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
       <% elsif customer_signed_in? %>
+        <!--ログインしているユーザー名を表示-->
+        <p>ようこそ！<%= current_customer.first_name %>さん</p>
         <li>
           <%= link_to "マイページ", customers_my_page_path %>
         </li>
