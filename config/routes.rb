@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-  end
   ##管理者用
   #URL /admin/sign_in...
   devise_for :admin, skip: [:registrations, :passwords] , controllers: {
@@ -16,6 +11,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show]
   end
 
 
