@@ -14,14 +14,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
   end
 
-
+  
   ##顧客用
-  #URL /customers/sign_in...
-  devise_for :customers, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: "public/sessions"
-  }
-
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
@@ -31,6 +25,12 @@ Rails.application.routes.draw do
     patch '/customers/out' => 'customers#out'
     resources :items, only: [:index, :show]
   end
+
+  #URL /customers/sign_in...
+  devise_for :customers, skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
 
 
 
