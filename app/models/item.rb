@@ -7,10 +7,10 @@ class Item < ApplicationRecord
 
   # 商品画像投稿
   has_one_attached :image
-  
+
   # 画像のサイズ変更
   def get_image(width, height)
-    image.variant(resize_to_limit: [width, height]).processed
+    image.variant(resize_to_fill: [width, height]).processed
   end
 
 

@@ -5,8 +5,10 @@
 
 <% @item.each do |item| %>
   <div>
-    <%= image_tag item.get_image(500, 400) %>
-    <p><%= item.name %></p>
+    <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_image(120,100) %>
+      <p><%= item.name %></p>
+    <% end %>
     <p><%= item.add_tax_price %>円</p>
   </div>
 <% end %>
