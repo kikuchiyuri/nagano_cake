@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show'
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/out' => 'customers#out'
+    resources :items, only: [:index, :show]
   end
 
 
