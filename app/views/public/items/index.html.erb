@@ -1,2 +1,12 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div>
+  <h1>商品一覧</h1>
+  <p>(全<%= @item_count %>件)</p>
+</div>
+
+<% @item.each do |item| %>
+  <div>
+    <%= image_tag item.get_image(500, 400) %>
+    <p><%= item.name %></p>
+    <p><%= item.add_tax_price %>円</p>
+  </div>
+<% end %>
