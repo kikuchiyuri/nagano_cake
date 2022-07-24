@@ -3,7 +3,7 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.all
     #コントローラーでは合計金額の初期値を設定
     @total = 0
-    
+
   end
 
   def update
@@ -13,6 +13,11 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to cart_items_path
+  end
+
+  def destroy_all
+    @cart_items = CartItem.all
+    @cart_items = CartItem.destroy_all
   end
 
   def create

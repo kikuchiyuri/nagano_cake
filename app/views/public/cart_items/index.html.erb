@@ -1,5 +1,9 @@
 <h1>ショッピングカート</h1>
 
+<span>
+  <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートの商品を全て削除しますか？" %>
+</span>
+
 <table>
   <thead>
     <tr>
