@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
   end
 
-  
+
   ##顧客用
   scope module: :public do
     root to: 'homes#top'
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/out' => 'customers#out'
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   end
 
   #URL /customers/sign_in...
