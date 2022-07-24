@@ -1,17 +1,18 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_item = CartItem.all
-    #コントローラーでは合計金額の初期を設定
+    #コントローラーでは合計金額の初期値を設定
     @total = 0
+    
   end
 
   def update
   end
 
   def destroy
-  end
-
-  def destroy_all
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def create

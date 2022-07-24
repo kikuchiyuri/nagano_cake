@@ -18,10 +18,17 @@
         <td><%= cart_item.amount %></td>
         <td><%= cart_item.subtotal.to_s(:delimited) %></td>
         <% @total += cart_item.subtotal %>
+        <td>
+          <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "このアイテムを削除してもよろしいですか？" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<span>
+  <%= link_to "買い物を続ける", items_path %>
+</span>
 
 <table>
   <tr>
