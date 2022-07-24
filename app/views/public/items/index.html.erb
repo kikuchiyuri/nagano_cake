@@ -9,6 +9,6 @@
       <%= image_tag item.get_image(300,200) %>
       <p><%= item.name %></p>
     <% end %>
-    <p><%= item.add_tax_price %>円</p>
+    <p><%= item.add_tax_price.to_s(:delimited) %>円</p>
   </div>
 <% end %>
