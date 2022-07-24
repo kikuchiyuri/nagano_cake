@@ -1,6 +1,8 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_item = CartItem.all
+    #コントローラーでは合計金額の初期を設定
+    @total = 0
   end
 
   def update
