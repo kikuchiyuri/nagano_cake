@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   belongs_to :genre
   belongs_to :home
-  has_many :items
+  has_many :cart_items
 
 
   # 商品画像投稿
@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   # 10%の消費税を加えた税込価格のメソッドを定義
   def add_tax_price
     (self.price * 1.10).round
+    
   end
 
 end
