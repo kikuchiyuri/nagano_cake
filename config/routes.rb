@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/out' => 'customers#out'
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :update, :destroy, :create]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+
   end
 
   #URL /customers/sign_in...
