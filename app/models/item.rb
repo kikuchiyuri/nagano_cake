@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
   # 10%の消費税を加えた税込価格のメソッドを定義
   def add_tax_price
-    (self.price * 1.10).round
+    (self.price * 1.10).floor
   end
 
 end
