@@ -37,15 +37,16 @@ class Public::SessionsController < Devise::SessionsController
   # 退会処理
   # 退会しているかを判断するメソッド
   def customer_state
-    ## 入力されたemailからアカウントを一件取得
+    ## (処理①)入力されたemailからアカウントを一件取得
     @customer = Customer.find_by(email: params[:customer][:email])
     ## アカウントを取得できなかった場合、このメソッドを修了する（→会員は新規登録する必要がある）
     return if !@customer
-    ## 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判別
-    if @customer.valid_passward?(params[:customer][:passward])
-      redirect_to new_customer_registration_path
-    else
-      redirect_to action: :create
+    ## （処理②）取得したアカウントのパスワードと入力されたパスワードが一致しているかを判別
+    if @customer.valid_password?(params[:customer][:passward])
+    ## (処理③-1)パスワードが一致したら、そのユーザーが退会ずみかどうかで処理を行う
+      if @customer.is_deleted
+        redirect_to new_customer_registration_path
+      end
     end
 
   end
